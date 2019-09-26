@@ -14,12 +14,16 @@ from .form import UserForm, UserCreationForm, LogoutForm
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage, send_mail
 from django.http import HttpResponse
+# for url parse
+# for url join
+import urllib.parse
 
-# rul base64
-
+# for encoding base64
 from base64 import b64decode, b64encode, urlsafe_b64decode, urlsafe_b64encode
 import base64
 
+# Common services
+from .services import JwtToken
 # Create your views here.
 
 
@@ -157,16 +161,28 @@ class Signup(APIView):
                 id = signup_user['data']['id']
                 username = signup_user['data']['username']
                 email = signup_user['data']['email']
+                group = 'users' # Default group name during signup
 
+                # Get token
+                jwt_token = JwtToken(username, group, email)
+                token = jwt_token.get_token()
+                print("-- TOKEN:", type(token),token)
+                if token:
+                    print("-- TOKEN:",token )
+
+                # Send Registration mail
+                """
                 mail_status =''
                 send_email = self.send_activation_mail(id, username, email)
                 #if send_email:
                 mail_status = send_email['mail_status']
                 #else:
                 print("--mail status", mail_status)
-
+                """
                 payload = {'log_msg': msg, 'id': id, 'username': username, 'email': email }
                 print("---signup success --", payload)
+                return Response(payload, status=status.HTTP_201_CREATED)
+
 
                 """
                     # Following data used to send mail for account activation
@@ -187,14 +203,14 @@ class Signup(APIView):
                     return Response(status=status.HTTP_424_FAILED_DEPENDENCY)
                 """
 
-
-
-                return Response(payload, status=status.HTTP_201_CREATED)
             else:
                 msg = signup_user['data']['error_msg']
                 payload = {'error_msg': msg, 'username' :username }
                 print("User creation fail")
                 return Response(payload, status=status.HTTP_409_CONFLICT)
+        else:
+            return Response({"error": form.errors.as_json()}, status=400)
+
 @api_view(['GET'])
 # def activate(request, uidb64, token):
 def activate(request, id):
@@ -243,6 +259,7 @@ def activate(request, id):
 
     return Response(status=status.HTTP_200_OK)
 """
+
 
 class Login(APIView):
 
@@ -332,3 +349,16 @@ class Login(APIView):
 
 class Logout(APIView):
     pass
+
+"""
+def get_token():
+    #response = requests.post(url='http://{}:{}/o/revoke_token/'.format(us_host, us_port), data=data)
+    # Token service host name and port
+    token_service_host_port = ["http://localhost", "5004"]
+    token_service_base_url = ':'.join(token_service_host_port)
+    get_token_path = [token_service_base_url, 'jwt/get_token/']
+    url = '/'.join(get_token_path)
+    print("-- Token Service url (to get token): ", url)
+
+    return Response(status=status.HTTP_200_OK)
+"""
