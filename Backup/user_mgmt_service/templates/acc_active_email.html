@@ -1,0 +1,12 @@
+{% autoescape off %}
+Hi {{ username }},
+Please click on the link to confirm your registration,
+
+domain - {{domain}}
+id - {{id}}
+link - {{user_activation_link }}/{{id|urlencode}}
+<a href={{user_activation_link }}/{{id|urlencode}}>
+
+<a href={{user_activation_link|urlencode }}/{{id|urlencode}}>click here</a>!
+
+{% endautoescape %}

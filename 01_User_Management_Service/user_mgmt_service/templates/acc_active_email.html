@@ -1,0 +1,13 @@
+{% autoescape off %}
+Hi {{ username }},
+Please click on the link to confirm your registration,
+
+domain - {{domain}}
+id - {{id}}
+id_bytes {{id_bytes}}
+id_b64 {{id_b64}}
+id_string {{id_string}}
+
+link - {{user_activation_link }}/{{id}}
+
+{% endautoescape %}
