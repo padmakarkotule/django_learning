@@ -1,0 +1,73 @@
+# Used for internalazation configuration
+Babel==2.7.0
+idna==2.7
+
+# Certifi is a carefully curated collection of Root Certificates
+certifi==2018.4.16
+
+#The Universal Character Encoding Detector
+chardet==3.0.4
+
+# return a list with class attrs names, and properties names
+cls==2019.4.13
+
+# Django
+Django==2.2.4
+
+# Bootstrap - Django class-based views working with Bootstrap, from Twitter.
+django-bootstrap==0.2.4
+
+# django widget contains Bootstrap 3 and Bootstrap 4 Date-Picker, Time-Picker, DateTime-Picker,
+# Month-Picker and Year-Picker
+# django-bootstrap-datepicker==1.4.0
+# django-bootstrap-datepicker-plus==3.0.5
+django-bootstrap-datepicker-plus==3.0.5
+
+# for handling the server headers required for Cross-Origin Resource Sharing (CORS).
+# django-cors-headers==2.4.0
+django-cors-headers==3.1.0
+
+# Django rest framework
+djangorestframework==3.8.2
+
+# replace '__all__' with '@public.add' decorator
+public==2019.4.13
+
+# Pure-Python implementation of ASN.1 types and DER/BER/CER codecs (X.208)
+pyasn1==0.4.7
+
+# World timezone definitions, modern and historical
+pytz==2019.2
+
+# Python HTTP for Humans.Requests is the only Non-GMO HTTP library for Python, safe for human consumption.
+requests==2.22.0
+
+# Reverse the content of a file, write into another file.
+reverse==0.1.0
+
+# HTTP library with thread-safe connection pooling, file post, and more.
+urllib3==1.25.6
+
+# Python Imaging Library (Fork).
+# This library provides extensive file format support,
+# an efficient internal representation, and fairly powerful image processing capabilities.
+Pillow==6.1.0
+
+# Weblib provides tools to solve typical tasks in web scraping:
+# processing HTML, handling text encodings, controling repeating and parallel tasks,
+# working with DOM tree, etc..
+# Note - weblib is used instead of tools package. tools pkg is deprected
+weblib==0.1.30
+
+# module for creating simple ASCII tables
+texttable==1.6.2
+
+# The PyPA recommended tool for installing Python packages.
+# Use command before all package installation
+# python -m pip install --upgrade pip (On linux pip install --upgrade pip)
+pip==19.2.3
+# A tool for creating isolated ‘virtual’ python environments.
+# virtualenv==16.0.0
+# For Windows batch scripts
+# for creating isolated Python virtual environments, each with their own libraries and site-packages.
+#virtualenvwrapper-win==1.2.5

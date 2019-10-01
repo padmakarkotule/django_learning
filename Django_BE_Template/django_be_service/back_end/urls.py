@@ -2,11 +2,11 @@ from django.urls import path, re_path
 from . import views
 
 # Register app name
-app_name = 'jwt_token'
+app_name = 'back_end'
 
 # Create urls here
 urlpatterns = [
     #path('', views.homepage, name='home'),  # map home view
-    path('jwt/get_token/', views.GetToken.as_view(), name='signup'),
-    path('jwt/verify_token/', views.VerifyToken.as_view(), name='login'),
+    path('be/create/', views.Create_post.as_view(), name='create'),
+    path('be/list/', views.List_get.as_view(), name='create'),
 ]

@@ -154,7 +154,7 @@ class Signup(APIView):
             #config = get_config('im_service')
             #im_url = config['data']['url_login']
             signup_user = self.create_user(username, password, email)
-            print("--Type of signup_user output -", type(signup_user), signup_user)
+            print("\n--Type of signup_user output -", type(signup_user), signup_user)
             signup_status = signup_user['status_code']
             if signup_status == 201:
                 msg = signup_user['data']['log_msg']
@@ -166,9 +166,9 @@ class Signup(APIView):
                 # Get token
                 jwt_token = JwtToken(username, group, email)
                 token = jwt_token.get_token()
-                print("-- TOKEN:", type(token),token)
+                print("\n--Received token in account service TOKEN:", type(token),token)
                 if token:
-                    print("-- TOKEN:",token )
+                    print("\n--In account service TOKEN:",token )
 
                 # Send Registration mail
                 """
@@ -180,8 +180,10 @@ class Signup(APIView):
                 print("--mail status", mail_status)
                 """
                 payload = {'log_msg': msg, 'id': id, 'username': username, 'email': email }
-                print("---signup success --", payload)
-                return Response(payload, status=status.HTTP_201_CREATED)
+                print("\n---signup success --", payload)
+                print("\n---In account type of token and value b4 return to client --", type(token), token)
+                #return Response(payload, status=status.HTTP_201_CREATED)
+                return Response(token, status=status.HTTP_201_CREATED)
 
 
                 """

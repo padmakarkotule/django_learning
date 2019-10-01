@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89c96e1f-10c2-4c5b-8e3e-dd0543f16b4a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/01-UI.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../01_Identity_Management/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../01_Identity_Management/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../01_User_Management_Service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../01_User_Management_Service/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../01_User_Management_Service/user_mgmt_service/user_mgmt/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../01_User_Management_Service/user_mgmt_service/user_mgmt/views.py" afterDir="false" />
@@ -37,7 +42,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="y" value="30" />
     <option name="width" value="1890" />
@@ -62,6 +67,9 @@
         </subPane>
       </pane>
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -89,7 +97,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
