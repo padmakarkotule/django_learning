@@ -3,6 +3,7 @@ from base64 import b64decode, b64encode, urlsafe_b64decode, urlsafe_b64encode
 import base64
 import jwt
 import json
+from datetime import timedelta
 
 
 class Jwt():
@@ -27,16 +28,31 @@ class Jwt():
 
         # Generate jwt token
         # 'token_type': token_type
+
+        """ 
+        Options - https://pypi.org/project/PyJWT/1.4.0/
+        
+        
+        """
+
+
+
+        # access_token_lifetime=timedelta(minutes=5)
+        access_token_lifetime = timedelta(minutes=1)
+        print("\n--JWT::Get_TOKEN:", type(access_token_lifetime), access_token_lifetime)
+        #access_token_lifetime = json.dumps()
+        #refresh_token_lifetime=timedelta(days=1)
+
         payload = payload = {
             'username': self.username,
             'groups': groups,
             'email': email,
             'client_id': client_id
         }
-
         SECRET = "JWT test token"
         # jwt_token = jwt.encode(payload, SECRET, algorithm='HS256')
 
+        #token = jwt.encode({'payload':payload, 'exp': access_token_lifetime }, 'secret', 'HS256').decode('utf-8')
         token = jwt.encode(payload, 'secret', 'HS256').decode('utf-8')
         print("\n--JWT:::GET_TOKEN: Org_JWT-TOKEN:", type(token), token)
         token = json.dumps(token)
@@ -62,8 +78,19 @@ class Jwt():
         #payload = jwt.decode(received_token, 'secret', algorithm='HS256')
         # payload = jwt_decode_handler(received_token)
 
+        options = {
+            'verify_signature': True,
+            'verify_exp': True,
+            'verify_nbf': True,
+            'verify_iat': True,
+            'verify_aud': True,
+            'require_exp': False,
+            'require_iat': False,
+            'require_nbf': False
+        }
+
         # decoded = base64.b64decode(received_token)
-        payload = jwt.decode(received_token_json_loads, 'secret', algorithm='HS256')
+        payload = jwt.decode(received_token_json_loads, 'secret', algorithm='HS256', options=options)
         if payload:
             username = payload['username']
             groups = payload['groups']
@@ -82,6 +109,45 @@ class Jwt():
         else:
             return {'error_msg': "Token mismatch", 'status': 'status.HTTP_401_UNAUTHORIZED'}
 
+    def get_access_refresh_token(self):
+
+        SECRET_KEY = 'secret'
+        options = {
+            'verify_signature': True,
+            'verify_exp': True,
+            'verify_nbf': True,
+            'verify_iat': True,
+            'verify_aud': True,
+            'require_exp': False,
+            'require_iat': False,
+            'require_nbf': False
+        }
+
+        SIMPLE_JWT = {
+            'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+            'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+            'ROTATE_REFRESH_TOKENS': False,
+            'BLACKLIST_AFTER_ROTATION': True,
+
+            'ALGORITHM': 'HS256',
+            'SIGNING_KEY': SECRET_KEY ,
+            'VERIFYING_KEY': None,
+            'AUDIENCE': None,
+            'ISSUER': None,
+
+            'AUTH_HEADER_TYPES': ('Bearer',),
+            'USER_ID_FIELD': 'id',
+            'USER_ID_CLAIM': 'user_id',
+
+            'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+            'TOKEN_TYPE_CLAIM': 'token_type',
+
+            'JTI_CLAIM': 'jti',
+
+            'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
+            'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
+            'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+        }
 
     # Class method
     @classmethod
