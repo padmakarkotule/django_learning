@@ -46,7 +46,7 @@ requests==2.22.0
 reverse==0.1.0
 
 # HTTP library with thread-safe connection pooling, file post, and more.
-urllib3==1.25.6
+urllib3==1.25.8
 
 # Python Imaging Library (Fork).
 # This library provides extensive file format support,
