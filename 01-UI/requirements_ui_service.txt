@@ -12,7 +12,7 @@ chardet==3.0.4
 cls==2019.4.13
 
 # Django
-Django==2.2.4
+Django==2.2.22
 
 # Bootstrap - Django class-based views working with Bootstrap, from Twitter.
 django-bootstrap==0.2.4
