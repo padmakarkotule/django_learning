@@ -1,5 +1,5 @@
 # Used for internalazation configuration
-Babel==2.7.0
+Babel==2.9.1
 idna==2.7
 
 # Certifi is a carefully curated collection of Root Certificates
