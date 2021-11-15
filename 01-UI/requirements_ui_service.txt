@@ -65,7 +65,7 @@ texttable==1.6.2
 # The PyPA recommended tool for installing Python packages.
 # Use command before all package installation
 # python -m pip install --upgrade pip (On linux pip install --upgrade pip)
-pip==19.2.3
+pip==21.1
 # A tool for creating isolated ‘virtual’ python environments.
 # virtualenv==16.0.0
 # For Windows batch scripts
