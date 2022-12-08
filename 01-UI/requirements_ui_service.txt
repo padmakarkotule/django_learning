@@ -3,7 +3,7 @@ Babel==2.7.0
 idna==2.7
 
 # Certifi is a carefully curated collection of Root Certificates
-certifi==2018.4.16
+certifi==2022.12.7
 
 #The Universal Character Encoding Detector
 chardet==3.0.4
