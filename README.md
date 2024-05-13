@@ -1,4 +1,4 @@
-
+<base target="_blank">
 ![POC Logo](img/poc_logo.png) 
 # POC DevOps Documentation 
 
