@@ -1,6 +1,6 @@
 
 ![POC Logo](img/poc_logo.png) 
-# ABC DevOps Documentation 
+# POC DevOps Documentation 
 
 1. [DevOps GCP Infrastructure Diagrams](#Diagrams)
 2. [Cloud SQL](#2)
